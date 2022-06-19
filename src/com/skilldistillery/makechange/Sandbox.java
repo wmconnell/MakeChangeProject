@@ -6,14 +6,14 @@ public class Sandbox {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		
+
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 		System.out.println("What is the price of the item?");
 		double price = scanner.nextDouble();
-		
+
 		System.out.println("How much money did the customer give you?");
 		double payment = scanner.nextDouble();
-		
+
 		calcPayment(price, payment);
 		scanner.close();
 	}
@@ -29,41 +29,76 @@ public class Sandbox {
 		double coin01 = 0.01;
 		double change = (payment - price);
 		int counter = 0;
-		int counter20b = 0;
-		int counter10b = 0;
-		int counter5b = 0;
-		int counter1b = 0;
-		int counter25c = 0;
-		int counter10c = 0;
-		int counter05c = 0;
-		int counter01c = 0;
-		
+
 		if (price < payment) {
 			System.out.println("Change: $" + change);
 			System.out.println(" ");
 			System.out.println("Hand the customer: ");
 			
-			for (counter = 1; change > bill20; counter++) {
+			for (counter = 0; change > bill20; counter++) {
 				change -= bill20;
 			}
-			System.out.println(counter + " $" +bill20 + "0s"); //testing
-			for (counter = 1; change > bill10; counter++) {
-				change -= bill10;
-				System.out.println(counter + " $" +bill10 + "0s"); //testing
-				
+			if (counter > 0) {
+					System.out.println((counter) + " $" + bill20 + "0 dollar bills"); // testing
 			}
-		}
-		else if (price > payment) {
+			
+			for (counter = 0; change > bill10; counter++) {
+				change -= bill10;
+			}
+			if (counter > 0) {
+			System.out.println((counter) + " $" + bill10 + "0 dollar bills"); // testing
+			}
+			
+			for (counter = 0; change > bill5; counter++) {
+				change -= bill5;
+			}
+			if (counter > 0) {
+			System.out.println(counter + " $" + bill5 + "0 dollar bills"); // testing
+			}
+			
+			for (counter = 0; change > bill1; counter++) {
+				change -= bill1;
+			}
+			if (counter > 0) {
+			System.out.println(counter + " $" + bill1 + "0 dollar bills"); // testing
+			}
+			
+			for (counter = 0; change > coin25; counter++) {
+				change -= coin25;
+			}
+			if (counter > 0) {
+			System.out.println(counter + " quarters"); // testing
+			}
+			
+			for (counter = 0; change > coin10; counter++) {
+				change -= coin10;
+			}
+			if (counter > 0) {
+			System.out.println(counter + " dimes"); // testing
+			}
+			
+			for (counter = 0; change > coin05; counter++) {
+				change -= coin05;
+			}
+			if (counter > 0) {
+			System.out.println(counter + " nickles"); // testing
+			}
+			
+			for (counter = 0; change > coin01; counter++) {
+				change -= coin01;
+			}
+			if (counter > 0) {
+			System.out.println(counter + " pennies"); // testing
+			}
+			
+		} else if (price > payment) {
 			System.out.println("Insufficient payment.");
-			System.out.println("Ask customer to provide an additional $" + change + ", or insist customer seek better-paying employment.");
-		}
-		else {
+			System.out.println("Ask customer to provide additional money"
+					+ ", or insist customer seek better-paying employment.");
+		} else {
 			System.out.println("Exact change provided. Thank you, come again!");
 			System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 		}
 	}
-	
-	
-	
-	
+
 }
