@@ -27,7 +27,7 @@ public class Sandbox {
 		double coin10 = 0.10;
 		double coin05 = 0.05;
 		double coin01 = 0.01;
-		double change = Math.round((payment - price)*100.0)/100.0;
+		double change = Math.round((payment - price) * 100.0) / 100.0;
 		int counter = 0;
 
 		if (price < payment) {
@@ -36,81 +36,85 @@ public class Sandbox {
 			System.out.println("Hand the customer: ");
 
 			for (counter = 0; change > bill20; counter++) {
-//				change -= bill20;
-//			}
-//			if (counter > 0) {
-//					System.out.println((counter) + " $" + bill20 + "0 dollar bills"); // testing
-//			}
-				changeCalcBills(change, bill20);
+				change -= bill20;
+			}
+			if (counter > 0) {
+					System.out.println((counter) + " $" + bill20 + "0 dollar bills"); // testing
+			}
+//				changeCalcBills(change, bill20);
 			}
 
 			for (counter = 0; change > bill10; counter++) {
 				change -= bill10;
 			}
 			if (counter > 0) {
-				System.out.println((counter) + " $" + bill10 + "0 dollar bills"); // testing
-			}
+				if (counter == 1) {
+					System.out.println((counter) + " $" + bill10 + "0 dollar bill"); // testing
 
-			for (counter = 0; change > bill5; counter++) {
-				change -= bill5;
-			}
-			if (counter > 0) {
-				System.out.println(counter + " $" + bill5 + "0 dollar bills"); // testing
-			}
+				} else {
+					System.out.println((counter) + " $" + bill10 + "0 dollar bills"); // testing
+				}
 
-			for (counter = 0; change > bill1; counter++) {
-				change -= bill1;
-			}
-			if (counter > 0) {
-				System.out.println(counter + " $" + bill1 + "0 dollar bills"); // testing
-			}
+				for (counter = 0; change > bill5; counter++) {
+					change -= bill5;
+				}
+				if (counter > 0) {
+					System.out.println(counter + " $" + bill5 + "0 dollar bills"); // testing
+				}
 
-			for (counter = 0; change > coin25; counter++) {
-				change -= coin25;
-			}
-			if (counter > 0) {
-				System.out.println(counter + " quarters"); // testing
-			}
+				for (counter = 0; change > bill1; counter++) {
+					change -= bill1;
+				}
+				if (counter > 0) {
+					System.out.println(counter + " $" + bill1 + "0 dollar bills"); // testing
+				}
 
-			for (counter = 0; change > coin10; counter++) {
-				change -= coin10;
-			}
-			if (counter > 0) {
-				System.out.println(counter + " dimes"); // testing
-			}
+				for (counter = 0; change > coin25; counter++) {
+					change -= coin25;
+				}
+				if (counter > 0) {
+					System.out.println(counter + " quarters"); // testing
+				}
 
-			for (counter = 0; change > coin05; counter++) {
-				change -= coin05;
-			}
-			if (counter > 0) {
-				System.out.println(counter + " nickles"); // testing
-			}
+				for (counter = 0; change > coin10; counter++) {
+					change -= coin10;
+				}
+				if (counter > 0) {
+					System.out.println(counter + " dimes"); // testing
+				}
 
-			
-			System.out.println(change);
+				for (counter = 0; change > coin05; counter++) {
+					change -= coin05;
+				}
+				if (counter > 0) {
+					System.out.println(counter + " nickles"); // testing
+				}
+
+				System.out.println(change);
 //			System.out.println(change);
-			
-			change = Math.round(change*100.0)/100.0;
-			
-			for (counter = 0; change >= coin01; counter++) {
-				change = Math.round(change*100.0)/100.0;
-				
-				change -= coin01;
-				System.out.println(counter + " " + change);
-			}
-			if (counter > 0) {
-				System.out.println(counter + " pennies"); // testing
-			}
 
-		} else if (price > payment) {
-			System.out.println("Insufficient payment.");
-			System.out.println(
-					"Ask customer to provide additional money" + ", or insist customer seek better-paying employment.");
-		} else {
-			System.out.println("Exact change provided. Thank you, come again!");
-			System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+				change = Math.round(change * 100.0) / 100.0;
+
+				for (counter = 0; change >= coin01; counter++) {
+					change = Math.round(change * 100.0) / 100.0;
+
+					change -= coin01;
+					System.out.println(counter + " " + change);
+				}
+				if (counter > 0) {
+					System.out.println(counter + " pennies"); // testing
+				}
+
+			} else if (price > payment) {
+				System.out.println("Insufficient payment.");
+				System.out.println("Ask customer to provide additional money"
+						+ ", or insist customer seek better-paying employment.");
+			} else {
+				System.out.println("Exact change provided. Thank you, come again!");
+				System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+			}
 		}
-	}
+	
 
 	public static void changeCalcBills(double change, double bill) {
 		int counter = 0;
